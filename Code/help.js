@@ -1,15 +1,44 @@
-module.exports = {
-  'help': {
+module.exports = 
+{
+  'help': 
+	{
     description: 'Shows the list of commands or help on specified command.',
     format: 'help [command-name]'
   },
-  'ping': {
+
+  'laska': 
+	{
+    description: 'Řekne ti, jak moc tě má <jmeno> rád/a.',
+    format: 'laska <jmeno>'
+  },
+
+	'!laska': 
+	{
+    description: 'Řekne ti, jak moc máš <jmeno> rád/a.',
+    format: 'laska <jmeno>'
+  },
+
+  'stesti': 
+	{
+    description: 'Řekne ti, kdy budeš mít štěstí.',
+    format: 'stesti'
+  },
+
+	'stesti-dnes': 
+	{
+    description: 'Řekne ti, jestli budeš mít dnes šťestí.',
+    format: 'stesti'
+  },
+
+	'iq': 
+	{
+    description: 'Řekne ti, hodnotu tvého inteligenčního kvocientu.',
+    format: 'iq'
+  },
+
+  'ping': 
+	{
     description: 'Checks connectivity with discord\'s servers.',
     format: 'ping'
-  },
-  'say': {
-    aliases: ['repeat'],
-    description: 'Repeats whatever is said.',
-    format: 'say <message>'
   }
 }

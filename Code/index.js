@@ -21,19 +21,20 @@ bot.on('message', async message => {
   if (message.content.startsWith(config.prefix)) {
     let args = message.content.slice(config.prefix.length).split(' ');
     let command = args.shift().toLowerCase();
-    console.log(`Message ${command}.`);
+    console.log(`Message: "${command}" v ${message.guild.name}`);
 
     switch (command) {
-      case 'budumitdnesstesti':
+      case 'stesti-dnes':
       //let msg1;
         //setTimeout(function(){
          // msg1 = message.channel.send(`Věštím...`);
         //}, 1000);
 
-        const messages = ["Jasně!", "Co já vím, je mi to úplně jedno.", "Možná jo.", "Jak to mám sakra vědět?", "Nemyslím si.", "Asi tak, jako vždy.", "Klasárna.", "Ne, nemyslím si.", "Nebudeš.", "Jsem snad věštec? A jo vlastně.", "Ty? Nikdy."];
+        const messages = ["Jasně! :four_leaf_clover:", "Co já vím, je mi to úplně jedno.", "Možná jo.", "Jak to mám sakra vědět?", "Nemyslím si.", "Asi tak, jako vždy.", "Klasárna.", "Ne, nemyslím si.", "Nebudeš.", "Jsem snad věštec? A jo vlastně...", "Ty? Nikdy."];
         const random = Math.floor(Math.random() * messages.length);
         message.channel.send(`${message.member} ${messages[random]}`);
         break
+
        case 'laska':
         if (args.length > 0)
         {
@@ -41,6 +42,7 @@ bot.on('message', async message => {
           message.channel.send(`${args.join(' ')} má rád ${message.member} na ${random} %.`);
         }
         break
+
        case '!laska':
         if (args.length > 0)
         {
@@ -48,6 +50,7 @@ bot.on('message', async message => {
           message.channel.send(`${message.member} má rád ${args.join(' ')} na ${random1} %.`);
         }
         break
+
       case 'iq':
         const random2 = Math.floor(Math.random() * 150);
         let txt = "";
@@ -73,20 +76,33 @@ bot.on('message', async message => {
         message.channel.send(txt);
         break
 
+       case 'stesti':
+          const random3 = Math.floor(Math.random() * 18250);
+          let txt1 = "";
+
+          if (args.length > 0)
+          {
+            txt1 = `Štěstí se na ${args.join(' ')} usměje za ${random3} dní. :four_leaf_clover:`;
+          }
+          else
+          {
+            txt1 = `Štěstí se na ${message.member} usměje za ${random3} dní. :four_leaf_clover:`;
+          }
+
+          message.channel.send(txt1);
+        break
+        //case 'kdomemarad':
+          //let members = message.guild.members;
+          //const random4 = Math.floor(Math.random() * members.length);
+          
+          //message.channel.send(`Myslím si, že by to mohl/a být ${members[random4].name}. :heart:`);
+        //break
+
       case 'ping':
         let msg = await message.reply('Pinging...');
         await msg.edit(`PONG! Message round-trip took ${Date.now() - msg.createdTimestamp}ms.`)
         break;
 
-      case 'say':
-      case 'repeat':
-        if (args.length > 0)
-          message.channel.send(args.join(' '));
-        else
-          message.reply('You did not send a message to repeat, cancelling command.')
-        break
-
-      /* Unless you know what you're doing, don't change this command. */
       case 'help':
         let embed = new MessageEmbed()
           .setTitle('HELP MENU')
@@ -95,7 +111,7 @@ bot.on('message', async message => {
           .setThumbnail(bot.user.displayAvatarURL());
         if (!args[0])
           embed
-            .setDescription(Object.keys(commands).map(command => `\`${command.padEnd(Object.keys(commands).reduce((a, b) => b.length > a.length ? b : a, '').length)}\` :: ${commands[command].description}`).join('\n'));
+            .setDescription(Object.keys(commands).map(command => `\`${command.padEnd(Object.keys(commands).reduce((a, b) => b.length > a.length ? b : a, '').length)}\` - ${commands[command].description}`).join('\n'));
         else {
           if (Object.keys(commands).includes(args[0].toLowerCase()) || Object.keys(commands).map(c => commands[c].aliases || []).flat().includes(args[0].toLowerCase())) {
             let command = Object.keys(commands).includes(args[0].toLowerCase()) ? args[0].toLowerCase() : Object.keys(commands).find(c => commands[c].aliases && commands[c].aliases.includes(args[0].toLowerCase()));
