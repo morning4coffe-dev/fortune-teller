@@ -1,1 +1,2 @@
-## Fortune teller Bot
+## Fortune Teller bot
+Fortune Teller is a funny Discord bot...
