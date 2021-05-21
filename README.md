@@ -9,6 +9,13 @@ Description
 ## **Commands**
 | **Command**        | **Aliases**           | **Description**           |
 | ------------- |-------------|-------------|
-| `luck`      | `stesti` | Tells you, whe will you be lucky. |
+| `luck`      | `stesti` | Tells you, when will you be lucky. |
+| `luck-today`      | `stesti-dnes` | Tells you, if today will be your lucky day. |
+| `love`      | `laska` | Tells you, how much someone loves you. |
+| `!love`      | `!laska` | Tells you, how much you love someone. |
+| `!love`      | `!laska` | Tells you, how much you love someone. |
+| `iq`      |  | Tells you, your intelligence quotient. |
+| `ping`      |  | Checks connectivity with discord's servers. |
+| `help`      |  | Shows a list of commands. |
 ## **Roadmap**
 ## **How can you contribute?**
